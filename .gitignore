@@ -1,0 +1,47 @@
+# LaTeX auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.lb
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.loa
+*.glo
+*.gls
+*.ist
+*.acn
+*.acr
+*.alg
+*.glg
+*.glsdefs
+*.xdy
+
+# LaTeX intermediate files
+*.dvi
+*.xdv
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.synctex.gz(busy)
+*.pdfsync
+
+# LaTeX backup files
+*~
+
+# Other files to ignore
+*.ps
+*.eps
+*.cls
+*.sty

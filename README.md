@@ -8,16 +8,31 @@ This document serves as an educational resource primarily designed for the cours
 - **CSE 455/555 Pattern Recognition**
 - **CSE 676 Deep Learning**
 
-It also serves as a personal reference tool in the domain of machine learning.
+Additionally, it functions as a personal reference in the field of machine learning.
 
 ## Purpose and Use
 
-The primary goal of this compilation is to provide a thorough overview and guide for both students and practitioners in the field of machine learning. The content within this document is a blend of direct references and adaptations from established texts and sources in the field, and it is not claimed as original content. The following uses are intended:
+This compilation aims to provide an extensive overview and guide for students and practitioners of machine learning, incorporating a blend of direct references and adaptations from established texts and sources. It is intended for:
 
-- **Educational Aid**: As a supplementary teaching and learning resource.
+- **Educational Aid**: As a supplementary resource for teaching and learning.
 - **Reference Material**: For personal and academic use.
 
-This document is **not authorized** for commercial use, redistribution, or sale without my explicit consent.
+This document is **not authorized** for commercial use, redistribution, or sale without explicit consent.
+
+## Community Contributions
+
+I welcome contributions and feedback from the community! If you have suggestions, corrections, or additional material you think would enhance this resource, please feel free to contribute. Here's how you can do that:
+
+- **Fork the Repository**: Create your own fork of the project.
+- **Make Changes**: Add your contributions or modifications.
+- **Submit a Pull Request**: Open a pull request to the original repository with a clear list of what you've done.
+- **Review & Merge**: I will review your changes and merge them into the main document as appropriate.
+
+When contributing, please adhere to the following guidelines:
+
+- Ensure that any added content is accurate and relevant to machine learning.
+- Respect intellectual property and cite sources appropriately.
+- Maintain a respectful and constructive tone in discussions and pull requests.
 
 ## Primary Sources
 
@@ -29,18 +44,15 @@ The majority of the material referenced in this document comes from the followin
 4. Burkov, A. "The Hundred-Page Machine Learning Book" (Vol. 1, p. 32). Quebec City, QC, Canada: Andriy Burkov, 2019.
 5. Burkov, A. "Machine Learning Engineering" (Vol. 1). Montreal, QC, Canada: True Positive Incorporated, 2020.
 
+
 ## Additional References
 
 All other referenced materials and sources are cited in the bibliography section of this document.
 
-## Acknowledgements
-
-(Special thanks and acknowledgements can be added here.)
-
 ## Contact Information
 
-For inquiries, permissions, or further information, please reach out to me at (your contact information).
+For inquiries, permissions, or further information, please reach out to me at (jueguo@buffalo.edu).
 
 ## Disclaimer
 
-This document is provided "as is," and the author makes no representations or warranties, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, or non-infringement.
+This document is provided "as is," and the author makes no representations or warranties, express or implied, regarding its completeness, accuracy, or reliability.

@@ -1,0 +1,12 @@
+\chapter{Intriguing Properties of Neural Network}
+
+Deep neural networks, known for their exceptional performance in speech and visual recognition tasks, exhibit two notable characteristics \citep{szegedy2013intriguing}. First, \textit{the semantic information in their higher layers is embedded not in individual units but in the collective space they form}. This insights shifts the focus from analyzing single neurons to considering the entire unit group to understand network processing. Second, \textit{these networks display a surprisingly sensitivity to minute, yet percisely tailored alternations (or perturbation).} Such small changes can lead to incorrect outcomes. This vulnerability is not due to random noise; the same modifications can deceive different networks trained on a different subset of the dataset, to misclassify the same input.
+
+\section{Introduction}
+
+Deep neural networks are powerful learning models that achieve excellent performance on visual and speech recognition problems because they can express arbitrary computation that consists of a modest number of massively parallel nonlinear steps. As the resulting computation is automatically discovered by backpropagation via supervised learning, it can be difficult to interpret and can have counter-intuitive properties.
+
+The \textbf{first} property is concerned with the semantic meaning of individual units. It seems that the entire space of activation, rather than the individual units, that contains the bulk of the semantic information contrary to prior belief and the \textbf{second} property is concerned with the stability of neural networks with respect to small perturbation to their inputs. Apply an \textit{imperceptible} non-random perturbation to a test image, it is possible to arbitrarily change the network's prediction. These perturbation are found by optimizing the input to maximize the prediction error. The perturbed examples are often called ``adversarial examples"
+
+\section{Framework}
+\textbf{Notation} $x\in \mathbb{R}$ denotes an input image, $\phi(x)$ is an activation values of some layer. \citep{szegedy2013intriguing} first examine properties of the image of $\phi(x)$, and then search for its blind spots. 
