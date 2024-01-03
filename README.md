@@ -52,7 +52,7 @@ All other referenced materials and sources are cited in the bibliography section
 
 ## Contact Information
 
-For inquiries, permissions, or further information, please reach out to me at (jueguo@buffalo.edu).
+For inquiries, permissions, or further information, please reach out to me at ( jueguo@buffalo.edu ).
 
 ## Disclaimer
 
