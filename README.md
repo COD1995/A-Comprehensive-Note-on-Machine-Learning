@@ -27,6 +27,8 @@ From my side there will be constant updates but in order to motivate my students
 - **Submit a Pull Request**: Open a pull request to the original repository with a clear list of what you've done.
 - **Review & Merge**: I will review your changes and merge them into the main document as appropriate.
 
+Details on how to create a pull request: [Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) 
+
 When contributing, please adhere to the following guidelines:
 
 - Ensure that any added content is accurate and relevant to machine learning.
