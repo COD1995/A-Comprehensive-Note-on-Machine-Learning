@@ -170,4 +170,8 @@ In cases where the set is implicit or infinite, we can use the notation \( \max_
 The expression \(a \leftarrow f(x)\) means that the variable \(a\) gets the new value: the result of \(f(x)\). We say that the variable \(a\) gets assigned a new value. Similarly, \(\mathbf{a} \leftarrow\left[a_{1}, a_{2}\right]\) means that the vector variable \(\mathbf{a}\) gets the two-dimensional vector \(\left[a_{1}, a_{2}\right]\).
 
 \subsection{Derivative and Gradient}
-A \textbf{derivative} \(f^{\prime}\) of a function \(f\) is a function or a value that describes how fast \(f\) grows (or decreases).
+A \textbf{derivative} \(f^{\prime}\) of a function \(f\) is a function or a value that describes how fast \(f\) grows (or decreases). If the derivative \(f^{\prime}\) is a function, then the function \(f\) can grow at a different pace in different regions of its domain.
+
+we can use \textbf{chain rule} when we encounter hard-to-differentiate function. For instance if \(F(x)=f(g(x))\), where \(f\) and \(g\) are some functions, then \(F^{\prime}(x)= f^{\prime}(g(x)) g^{\prime}(x)\).
+
+\textbf{Gradient} is the generalization of derivative for functions that take several inputs (or one input in the form of a vector or some other complex structure). A gradient of a function is a vector of \textbf{partial derivatives}. For example, \(f\left(\left[x^{(1)}, x^{(2)}\right]\right)=a x^{(1)}+b x^{(2)}+c\), then the partial derivative of function \(f\) \textit{with respect to} \(x^{(1)}\), denoted as \(\frac{\partial f}{\partial x^{(1)}}\), is given by,
