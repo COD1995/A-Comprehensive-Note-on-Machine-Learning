@@ -20,8 +20,7 @@ This compilation aims to provide an extensive overview and guide for students an
 This document is **not authorized** for commercial use, redistribution, or sale without explicit consent.
 
 ## Community Contributions
-
-I welcome contributions and feedback from the community! If you have suggestions, corrections, or additional material you think would enhance this resource, please feel free to contribute. Here's how you can do that:
+From my side there will be constant updates but in order to motivate my students to read I have a 3 bonus points if they make significant and meaningful contribution to each chapters of the note. I welcome contributions and feedback from the community! If you have suggestions, corrections, or additional material you think would enhance this resource, please feel free to contribute. Here's how you can do that:
 
 - **Fork the Repository**: Create your own fork of the project.
 - **Make Changes**: Add your contributions or modifications.
