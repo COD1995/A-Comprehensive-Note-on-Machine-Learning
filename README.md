@@ -12,12 +12,12 @@ Additionally, it functions as a personal reference in the field of machine learn
 
 ## Purpose and Use
 
-This compilation aims to provide an extensive overview and guide for students and practitioners of machine learning, incorporating a blend of direct references and adaptations from established texts and sources. It is intended for:
+This compilation aims to provide an extensive overview and guide for students and practitioners of machine learning, incorporating a blend of **direct** references and **adaptations** from established texts and sources. It is intended for:
 
 - **Educational Aid**: As a supplementary resource for teaching and learning.
 - **Reference Material**: For personal and academic use.
 
-This document is **not authorized** for commercial use, redistribution, or sale without explicit consent.
+This document is **not authorized** for commercial use, redistribution, or sale without explicit consent. To read the pdf version of the document: [PDF](https://github.com/COD1995/A-Comprehensive-Note-on-Machine-Learning/blob/main/machine_learning.pdf)
 
 ## Community Contributions
 From my side there will be constant updates but in order to motivate my students to read I have a **3 bonus points** if they make significant and meaningful contribution to each chapters of the note. I welcome contributions and feedback from the community! If you have suggestions, corrections, or additional material you think would enhance this resource, please feel free to contribute. Here's how you can do that:

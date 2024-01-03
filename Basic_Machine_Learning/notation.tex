@@ -175,3 +175,9 @@ A \textbf{derivative} \(f^{\prime}\) of a function \(f\) is a function or a valu
 we can use \textbf{chain rule} when we encounter hard-to-differentiate function. For instance if \(F(x)=f(g(x))\), where \(f\) and \(g\) are some functions, then \(F^{\prime}(x)= f^{\prime}(g(x)) g^{\prime}(x)\).
 
 \textbf{Gradient} is the generalization of derivative for functions that take several inputs (or one input in the form of a vector or some other complex structure). A gradient of a function is a vector of \textbf{partial derivatives}. For example, \(f\left(\left[x^{(1)}, x^{(2)}\right]\right)=a x^{(1)}+b x^{(2)}+c\), then the partial derivative of function \(f\) \textit{with respect to} \(x^{(1)}\), denoted as \(\frac{\partial f}{\partial x^{(1)}}\), is given by,
+$$
+	\frac{\partial f}{\partial x^{(1)}}=a+0+0=a
+$$
+where \(a\) is the derivative of the function \(a x^{(1)}\); the two zeroes are respectively derivatives of
+\(b x^{(2)}\) and \(c\), because \(x^{(2)}\) is considered constant when we compute the derivative with respect
+to \(x^{(1)}\), and the derivative of any constant is zero.
