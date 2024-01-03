@@ -44,6 +44,29 @@ Detail of some tyical continual learning scenairos (refer to Table \ref{table:4.
 \begin{itemize}
     \item \textit{Instance-Incremental Learning} (IIL): All training samples belong to the same task and arrive in batches.
     \item \textit{Domain-Incremental Learning} (DIL): Tasks have the same data label space but different input distributions. Task identities are not required.
-    \item \textit{Task-Incremental Learning} (TIL): Tasks have disjoint data label spaces. Task identities are provided in both training and testing.
-    \item \textit{Class-Incremental Learning} (CIL): Tasks have disjoint data label spaces. Task identities are only provided in training.
+    \item \textbf{\textit{Task-Incremental Learning}} (TIL): Tasks have disjoint data label spaces. Task identities are provided in both training and testing.
+    \item \textbf{\textit{Class-Incremental Learning}} (CIL): Tasks have disjoint data label spaces. Task identities are only provided in training.
+    \item \textit{Task-free Continual Learning} (TFCL): Tasks have disjoint data label spaces. Task identities are not provided in either training or testing.
+    \item \textit{Online Continual Learning} (OCL): Tasks have disjoint data label spaces. Training samples for each task arrive as a one-pass data stream.
+    \item \textit{Blurred Boundary Continual Learning} (BBCL): Task boundaries are blurred, characterized by distinct but overlapping data label spaces.
+    \item \textit{Continual Pre-training} (CPT): Pre-training data arrives in sequence. The goal is to improve the performance of learning downstream tasks.
 \end{itemize}
+
+Lots of the above mentioned scenairo is messy, hence we will focus on the most popular scenairos: Task-Incremental Learning and Class-Incremental Learning.
+
+\subsection{Evaluation Metrics}
+\textbf{Overall performance} is typically evaluated by \textit{average accuracy} (AA) and \textit{average incremental accuracy} (AIA). Let \(a_{k, j} \in[0,1]\) denote the classification accuracy evaluated on the test set of the \(j\)-th task after incremental learning of the \(k\)-th task \((j \leq k)\). The output space to compute \(a_{k, j}\) consists of the classes in either \(\mathcal{Y}_{j}\) or \(\cup_{i=1}^{k} \mathcal{Y}_{i}\),  corresponding to the use of multi-head evaluation (e.g., TIL) or single-head evaluation (e.g., CIL). The two metrics at the \(k\)-th task are then defined as
+\begin{equation*}
+    \mathrm{AA}_{k}=\frac{1}{k} \sum_{j=1}^{k} a_{k, j}
+\end{equation*}
+AA represnets the overall performance at the current moment.
+
+\begin{equation*}
+    \mathrm{AIA}_{k}=\frac{1}{k} \sum_{i=1}^{k} \mathrm{AA}_{i}
+\end{equation*}
+AIA reflects the historical variaion.
+
+\textbf{Memory stability} can be evaluted by \textit{forgetting measure} (FM) and \textit{backward transfer} (BWT). As for the former, the forgetting of a task is calculated by the difference between its maximum performance obtained in the past and its current performance:
+\begin{equation*}
+    f_{j, k}=\max _{i \in\{1, \ldots, k-1\}}\left(a_{i, j}-a_{k, j}\right), \forall j<k
+\end{equation*}
