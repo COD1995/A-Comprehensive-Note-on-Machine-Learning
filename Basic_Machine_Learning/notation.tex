@@ -180,4 +180,37 @@ $$
 $$
 where \(a\) is the derivative of the function \(a x^{(1)}\); the two zeroes are respectively derivatives of
 \(b x^{(2)}\) and \(c\), because \(x^{(2)}\) is considered constant when we compute the derivative with respect
-to \(x^{(1)}\), and the derivative of any constant is zero.
+to \(x^{(1)}\), and the derivative of any constant is zero. Similarly, the partial derivative of function \(f\) with respect to \(x^{(2)}, \frac{\partial f}{\partial x^{(2)}}\), is given by,
+$$
+	\frac{\partial f}{\partial x^{(2)}}=0+b+0=b
+$$
+
+The gradient of function \(f\), denoted as \(\nabla f\) is given by the vector \(\left[\frac{\partial f}{\partial x^{(1)}}, \frac{\partial f}{\partial x^{(2)}}\right]\).
+
+\section{Random Variable}
+
+A \textbf{random variable}, usually written as an italic letter, like \(X\), is a variable whose possible values are numerical outcomes of a random phenomenon. There are two types of random variables: \textbf{discrete} and \textbf{continuous}. A \textbf{discrete random variable} takes on only countable number of distinct values such as \textit{red}, \textit{yellow}, \textit{blue} or 1,2,3, . . ..
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{imgs/notation/notation_4.png}
+	\caption{A probability mass function and a probability density function.}
+	\label{fig:notation_4}
+\end{figure}
+The \textbf{probability distribution} of a discrete random variable is described by a list of probability associated with each of its possible values. This list of probability is called a \textbf{probability mass function} (pmf)(Fig.\ref{fig:notation_4}, \textbf{a}).
+
+A \textbf{continuous random variable} takes an infinite number of possible values in some interval. The probability distribution of a continual random variable (a continuous probability distribution) is described by a \textbf{probability density function} (pdf) (Fig.\ref{fig:notation_4}, \textbf{b}).
+
+Let a discrete random variable \(X\) have \(k\) possible values \(\left\{x_{i}\right\}_{i=1}^{k}\). The \textbf{expectation} of \(X\) denoted as \(\mathbb{E}[X]\) is given by,
+
+$$
+	\begin{aligned} \mathbb{E}[X] & \stackrel{\text { def }}{=} \sum_{i=1}^{k}\left[x_{i} \cdot \operatorname{Pr}\left(X=x_{i}\right)\right] \\ & =x_{1} \cdot \operatorname{Pr}\left(X=x_{1}\right)+x_{2} \cdot \operatorname{Pr}\left(X=x_{2}\right)+\cdots+x_{k} \cdot \operatorname{Pr}\left(X=x_{k}\right)\end{aligned}
+$$
+
+where \(\operatorname{Pr}\left(X=x_{i}\right)\) is the probability that \(X\) has the value \(x_{i}\) according to the pmf. The expectation of a random variable is also called the \textbf{mean}, \textbf{average} or \textbf{expected value} and is frequently denoted with the letter \(\mu\),
+
+Now the \textbf{standard deviation}, defined as,
+$$
+	\sigma \stackrel{\text { def }}{=} \sqrt{\mathbb{E}\left[(X-\mu)^{2}\right]}
+$$
+
