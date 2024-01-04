@@ -89,3 +89,12 @@ $$
     \mathrm{FWT}_{k}=\frac{1}{k-1} \sum_{j=2}^{k}\left(a_{j, j}-\tilde{a}_{j}\right)
 $$
 where \(\tilde{a}_{j}\) is the classification accuracy of a randomly-initialized reference model trained with \(\mathcal{D}_{j}\) for the \(j\)-th task.
+
+\section{Method}
+
+In this section, we go through representative continual learning methods.
+
+\subsection{Regularization-based Aprroach}
+This direction is characterized by adding explicit regularization terms to balance the old and new tasks, which usually requires storing a frozen copy of the old model for reference. Depending on the target of regularization, such methods can be divided into two sub-directions.
+
+The first is \textbf{weight regularization}, which selectively regularizes the variation of network parameters. A typical implementation is to add a quadratic penalty in loss function that penalizes the variation of each parameter depending on its contribution or ``importance'' to performing the old tasks, in a form originally derived from online Laplace approximation of the posterior under the Bayesian framework.
