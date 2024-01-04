@@ -70,3 +70,22 @@ AIA reflects the historical variaion.
 \begin{equation*}
     f_{j, k}=\max _{i \in\{1, \ldots, k-1\}}\left(a_{i, j}-a_{k, j}\right), \forall j<k
 \end{equation*}
+FM at the \(k\)-th task is the average forgetting of all old tasks:
+$$
+    \mathrm{FM}_{k}=\frac{1}{k-1} \sum_{j=1}^{k-1} f_{j, k},
+$$
+As for the latter, BWT evaluates the average influence of learning the \(k\)-th task on all old tasks:
+$$
+    \mathrm{FWT}_{k}=\frac{1}{k-1} \sum_{j=2}^{k}\left(a_{j, j}-\tilde{a}_{j}\right),
+$$
+where the forgetting is usally reflected as a negative BWT.
+
+\textbf{Learning plasticity} can be evaluated by \textit{intransience measure} (IM) and \textit{forward transfer} (FWT). IM is defined as the inability of a model to learn new tasks, calculated by the difference of a task between its joint training performance and continual leanring performance:
+$$
+    \mathrm{IM}_{k}=a_{k}^{*}-a_{k, k}
+$$
+where \(a_{k}^{*}\) is the classification accuracy of a randomly-initialized reference model jointly trained with \(\cup_{j=1}^{k} \mathcal{D}_{j}\) for the \(k\)-th task. In comparison, FWT evaluates the average influence of all old tasks on the current \(k\)-th task:
+$$
+    \mathrm{FWT}_{k}=\frac{1}{k-1} \sum_{j=2}^{k}\left(a_{j, j}-\tilde{a}_{j}\right)
+$$
+where \(\tilde{a}_{j}\) is the classification accuracy of a randomly-initialized reference model trained with \(\mathcal{D}_{j}\) for the \(j\)-th task.

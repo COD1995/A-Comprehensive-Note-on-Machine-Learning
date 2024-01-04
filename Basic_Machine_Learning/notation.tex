@@ -213,4 +213,44 @@ Now the \textbf{standard deviation}, defined as,
 $$
 	\sigma \stackrel{\text { def }}{=} \sqrt{\mathbb{E}\left[(X-\mu)^{2}\right]}
 $$
+\textbf{Variance}, denoted as \(\sigma^{2}\) or \(\operatorname{var}(X)\), is defined as,
+$$
+	\sigma^{2}=\mathbb{E}\left[(X-\mu)^{2}\right]
+$$
+For a discrete random variable, the standard deviation is given by:
+$$
+	\sigma=\sqrt{\operatorname{Pr}\left(X=x_{1}\right)\left(x_{1}-\mu\right)^{2}+\operatorname{Pr}\left(X=x_{2}\right)\left(x_{2}-\mu\right)^{2}+\cdots+\operatorname{Pr}\left(X=x_{k}\right)\left(x_{k}-\mu\right)^{2}}
+$$
 
+The expectation of a continuous random variable \(X\) is given by,
+$$
+	\mathbb{E}[X] \stackrel{\text { def }}{=} \int_{\mathbb{R}} x f_{X}(x) d x
+$$
+where \(f_{X}\) is the pdf of the variable \(X\) and \(\int_{\mathbb{R}}\) is the integral of function \(x f_{X}\)
+\begin{tcolorbox}[enhanced jigsaw, breakable, pad at break*=1mm, colback=gray!20!white, colframe=black!85!black, title=\textbf{Real-Life Examples of Probability Concepts}]
+
+	\textbf{Standard Deviation of a Discrete Random Variable:}
+	Consider a dice game where you roll a six-sided die. Each face represents a different prize amount in dollars: \{1, 2, 3, 4, 5, 6\}. The probability of each outcome is \( \frac{1}{6} \) for a fair die.
+
+	\textit{Mean Calculation:}
+	The mean (\( \mu \)) or expected value of your winnings per roll is:
+	\[ \mu = \frac{1+2+3+4+5+6}{6} = 3.5 \, \text{dollars} \]
+
+	\textit{Standard Deviation Calculation:}
+	The standard deviation \( \sigma \) is given by:
+	\[ \sigma = \sqrt{\sum_{i=1}^{6} \left(\frac{1}{6}\right) \times (i - 3.5)^2} \]
+
+	\textbf{Expectation of a Continuous Random Variable:}
+	Imagine the waiting time for a bus, which follows a continuous uniform distribution between 0 and 1 hour.
+
+	\textit{Expectation Calculation:}
+	The expectation of the waiting time, \( \mathbb{E}[X] \), is calculated as:
+	\[ \mathbb{E}[X] = \int_{0}^{1} x \, dx \]
+	$$
+		\mathbb{E}[X]=\int_{0}^{1} x d x=\left[\frac{1}{2} x^{2}\right]_{0}^{1}=\frac{1}{2}\left(1^{2}\right)-\frac{1}{2}\left(0^{2}\right)=\frac{1}{2}
+	$$
+	The result of this integral is \( \frac{1}{2} \) hour, indicating the average waiting time.
+\end{tcolorbox}
+The property of the pdf that the area under its curve is 1 mathematically means that \(\int_{\mathbb{R}} f_{X}(x) d x=1\). Most of the time we don't know \(f_{X}\), but we can observe some values of \(X\). In machine learning, we call these values \textbf{examples}, and the collection of these examples is called a \textbf{sample} or a \textbf{dataset}.
+
+\section{Unbiased Estimator}
