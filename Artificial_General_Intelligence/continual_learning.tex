@@ -113,4 +113,15 @@ Compared to learning each task within the constraints of the old model, which ty
 The second is \textbf{functional regularization}, which targets the intermediate or final output of the prediction function. This strategy typically employs the previously-learned model as the teacher and the currently-trained model as the student, while implementing knowledge distillation (KD) to mitigate catastrophic forgetting.
 
 \subsection{Replay-based Approach}
-We group the methods for approximating and recovering old data distributions into this direction 
+We group the methods for approximating and recovering old data distributions into this direction (Fig. \ref{cl_3}). Depending on the content of replay, these methods can be further divided into three sub-directions, each with its own targets and challenges. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{imgs/continual_learning/cl_3.png}
+	\caption{Replay-based approach. This direction is characterized by approximating and recovering the old data distributions. Typical subdirections include experience replay, which saves a few old training samples in a memory buffer; generative replay, which trains a generative model to provide generated samples; and feature replay, which recovers the distribution of old features through saving prototypes, saving statistical information or training a generative model.}
+	\label{cl_3}
+\end{figure}
+
+The first is \textbf{experience replay}, which typically stores a few old training samples within a small memory buffer. Due to the extremely limited storage space, the key challenges consist of \textit{how to construct} and \textit{how to exploit} the memory buffer.  As for construction, the preserved old training samples should be carefully selected, compressed, augmented and updated, in order to recover adaptively the past information.  Some notable sampling methods are \textit{reservoir sampling} where randomly preserves a fixed number of old training samples obtained from each training batch and \textit{ring buffer} ensures an equal number of old training samples per class.  \textit{Mean-of-Feature} selects an equal number of old training samples that are closest to the feature mean of each class.  For exploitation, experience replay requires an adequate use of the memory buffer to recover the past information.  First, the effect of old training samples in optimization can be constrained to avoid catastrophic forgetting and facilitate knowledge transfer.  On the other hand, experience replay can be naturally combined with \textit{knowledge distillation} (KD), which additionally incorporates the past information from the old model. 
+
+The second is \textbf{generative replay} or pseudo-rehearsal, which usually requires training on additional generative model to replay generated data. 

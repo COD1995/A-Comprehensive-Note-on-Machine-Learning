@@ -203,9 +203,12 @@ A \textbf{continuous random variable} takes an infinite number of possible value
 
 Let a discrete random variable \(X\) have \(k\) possible values \(\left\{x_{i}\right\}_{i=1}^{k}\). The \textbf{expectation} of \(X\) denoted as \(\mathbb{E}[X]\) is given by,
 
-$$
-	\begin{aligned} \mathbb{E}[X] & \stackrel{\text { def }}{=} \sum_{i=1}^{k}\left[x_{i} \cdot \operatorname{Pr}\left(X=x_{i}\right)\right] \\ & =x_{1} \cdot \operatorname{Pr}\left(X=x_{1}\right)+x_{2} \cdot \operatorname{Pr}\left(X=x_{2}\right)+\cdots+x_{k} \cdot \operatorname{Pr}\left(X=x_{k}\right)\end{aligned}
-$$
+\begin{equation}
+		\begin{aligned}
+			 \mathbb{E}[X] & \stackrel{\text { def }}{=} \sum_{i=1}^{k}\left[x_{i} \cdot \operatorname{Pr}\left(X=x_{i}\right)\right] \\ & =x_{1} \cdot \operatorname{Pr}\left(X=x_{1}\right)+x_{2} \cdot \operatorname{Pr}\left(X=x_{2}\right)+\cdots+x_{k} \cdot \operatorname{Pr}\left(X=x_{k}\right)
+		\end{aligned}
+		\label{notation:1}
+\end{equation}
 
 where \(\operatorname{Pr}\left(X=x_{i}\right)\) is the probability that \(X\) has the value \(x_{i}\) according to the pmf. The expectation of a random variable is also called the \textbf{mean}, \textbf{average} or \textbf{expected value} and is frequently denoted with the letter \(\mu\),
 
@@ -223,9 +226,11 @@ $$
 $$
 
 The expectation of a continuous random variable \(X\) is given by,
-$$
+\begin{equation}
 	\mathbb{E}[X] \stackrel{\text { def }}{=} \int_{\mathbb{R}} x f_{X}(x) d x
-$$
+	\label{notation:2}
+\end{equation}
+
 where \(f_{X}\) is the pdf of the variable \(X\) and \(\int_{\mathbb{R}}\) is the integral of function \(x f_{X}\)
 \begin{tcolorbox}[enhanced jigsaw, breakable, pad at break*=1mm, colback=gray!20!white, colframe=black!85!black, title=\textbf{Real-Life Examples of Probability Concepts}]
 
@@ -254,3 +259,29 @@ where \(f_{X}\) is the pdf of the variable \(X\) and \(\int_{\mathbb{R}}\) is th
 The property of the pdf that the area under its curve is 1 mathematically means that \(\int_{\mathbb{R}} f_{X}(x) d x=1\). Most of the time we don't know \(f_{X}\), but we can observe some values of \(X\). In machine learning, we call these values \textbf{examples}, and the collection of these examples is called a \textbf{sample} or a \textbf{dataset}.
 
 \section{Unbiased Estimator}
+Because \(f_{X}\) is usually unknown, but we have sample \(S_{X}=\left\{x_{i}\right\}_{i=1}^{N}\), we often content ourselves not with the true values of statistics of the probability distribution, such as expectation, but with their \textbf{unbiased estimators}.
+
+We say that \(\hat{\theta}\left(S_{X}\right)\) is an unbiased estimator of some statistic \(\theta\) calculated using a sample \(S_{X}\)
+drawn from an unknown probability distribution if \(\hat{\theta}\left(S_{X}\right)\) has the following property:
+$$
+\mathbb{E}\left[\hat{\theta}\left(S_{X}\right)\right]=\theta
+$$
+where \(\hat{\theta}\) is a \textbf{sample statistic}, obtained using a sample \(S_{X}\) and not the real statistic \(\theta\) that can be obtained only knowing \(X\); the expectation is taken over all possible samples drawn from \(X\). Intuitively, this means that if you can have an unlimited number of such sample as \(S_{X}\), and you compute some unbiased estimator, such as \(\hat{\mu}\), using each sample, then the average of all these \(\hat{\mu}\) equals the real statistic \(\mu\) that you would get computed on \(X\).
+
+It can be shown that an unbiased estimator of an unknown \(\mathbb{E}[X]\) (Eq.\ref{notation:1} or Eq.\ref{notation:2}) is given by \(\frac{1}{N} \sum_{i=1}^{N} x_{i}\) (called in statistics the \textbf{sample mean}).
+
+\section{Bayes' Rule}
+The conditional probability \(\operatorname{Pr}(X=x \mid Y=y)\) is the probability of the random variable \(X\) to have a specific value $x$ given another random variable $Y$ has a specific value of $y$. The \textbf{Bayes' Rule} (also known as the \textbf{Bayes' Therem}) stipulate that: 
+$$
+\operatorname{Pr}(X=x \mid Y=y)=\frac{\operatorname{Pr}(Y=y \mid X=x) \operatorname{Pr}(X=x)}{\operatorname{Pr}(Y=y)}
+$$
+
+\section{Parameter Estimation}
+Bayes' Rule comes in handy when we have a model of \(X\)'s distribution, and this model \(f_{\theta}\) is a function that has some parameters in the form of a vector \(\theta\).  An example of such a function could be the Gaussian function that has two parameters, $\mu$ and $\sigma$, and is defined as: 
+\begin{equation}
+	f_{\boldsymbol{\theta}}(x)=\frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}}
+	\label{notation:3}
+\end{equation}
+where \(\boldsymbol{\theta} \stackrel{\text { def }}{=}[\mu, \sigma]\) and \(\pi\) is the constant \((3.14159 \ldots)\). 
+
+This function has all the properties of a pdf, which is the pdf od one of the most frequently used in practice probability distributions called \textbf{Gaussian distribution} or \textbf{normal distribution} and denote as \(\dot{\mathcal{N}}\left(\mu, \sigma^{2}\right)\). 
