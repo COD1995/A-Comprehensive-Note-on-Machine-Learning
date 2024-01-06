@@ -95,6 +95,22 @@ where \(\tilde{a}_{j}\) is the classification accuracy of a randomly-initialized
 In this section, we go through representative continual learning methods.
 
 \subsection{Regularization-based Aprroach}
-This direction is characterized by adding explicit regularization terms to balance the old and new tasks, which usually requires storing a frozen copy of the old model for reference. Depending on the target of regularization, such methods can be divided into two sub-directions.
+This direction is characterized by adding explicit regularization terms to balance the old and new tasks, which usually requires storing a frozen copy of the old model for reference (Fig. \ref{cl_2}). Depending on the target of regularization, such methods can be divided into two sub-directions.
 
-The first is \textbf{weight regularization}, which selectively regularizes the variation of network parameters. A typical implementation is to add a quadratic penalty in loss function that penalizes the variation of each parameter depending on its contribution or ``importance'' to performing the old tasks, in a form originally derived from online Laplace approximation of the posterior under the Bayesian framework.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{imgs/continual_learning/cl_2.png}
+	\caption{Regularization-based approach. This direction is characterized by adding explicit regularization terms to mimic the parameters (weight regularization) or behaviors (function regularization) of the old model.}
+	\label{cl_2}
+\end{figure}
+
+The first is \textbf{weight regularization}, which selectively regularizes the variation of network parameters. A typical implementation is to add a quadratic penalty in loss function that penalizes the variation of each parameter depending on its contribution or ``importance'' to performing the old tasks, in a form originally derived from online Laplace approximation of the posterior under the Bayesian framework. The importance can be calculated by the Fisher information matrix (FIM), such as EWC. Numerous efforts have been devoted to designing a better imoportance measurement. SI online approximate the importance of each parameter by its contribution to the total loss vaiation and its update length over the entire training trajectory. MAS accumulates the importance measurements based on the sensitivity of predictive results to parameter changes, which is both online and unsupervised. RWalk combines regularization terms of SI and EWC to integrate their advantages.These importance measurements have been shown to be all tantamount to an approximation of the FIM, although stemming from different motivations.
+
+There are also several works refining the implementation of the quadratic penalty.Since the diagonal approaximation of the FIM in EWC might lose information about the old tasks, R-EWC performs a factorized rotation of the parameter space to diagonalize the FIM. XK-FAC further considers the inter-example relations in approximating the FIM to better accommodate batch normalization. Observing the asymmetric effect of parameter changes on old tasks, ALASSO designs an asymmetric quadratic penalty with one of its sides overestimated.
+
+Compared to learning each task within the constraints of the old model, which typically exacerbates the intransience, an \textit{expansion-renormalization} process of obtaining separately the new task solution and renormalizing it with the old model has shown to provide a better stability-plasticity trade off.
+
+The second is \textbf{functional regularization}, which targets the intermediate or final output of the prediction function. This strategy typically employs the previously-learned model as the teacher and the currently-trained model as the student, while implementing knowledge distillation (KD) to mitigate catastrophic forgetting.
+
+\subsection{Replay-based Approach}
+We group the methods for approximating and recovering old data distributions into this direction 
