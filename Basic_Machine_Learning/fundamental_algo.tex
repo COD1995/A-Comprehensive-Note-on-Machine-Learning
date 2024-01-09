@@ -6,3 +6,17 @@ We will first provide you with basic tools to use, so we will start the simple t
 
 \subsection{Linear Regression}
 When you use it, you are making the assumption that there is a \textit{linear} relationship between an outcome variable (sometimes also called the response vairable, dependent variable, or label) and a predictor (sometimes also called an independent variable, explanatory variable, or feature); or between one variable and several other variables, in which case you're \textit{modeling} the relationship as having a linear structure.
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, pad at break*=1mm, colback=gray!20!white, colframe=black!85!black, title=\textbf{Algorithm or a Model?}]
+    The two words seem to be used interchangeably when their actual definitions are not the same thing at all. In the purest sense, an algorithm is a set of rules or steps to follow to accomplish some task, and a model is an attempt to describe or capture the world.
+
+    To differentiate the two in machine learning, think of an algorithm as a process and a model as the result of running the process. In other words, you use an algorithm to create a model.
+\end{tcolorbox}
+
+How to describe something of a linear nature? \(y=f(x)=\beta_{0}+\beta_{1}x\). Let's approach this from the perspective of deterministic function first.
+
+\textbf{Example 1} Suppose you run a social networking site that charges a monthly subscription fee of \$25, and that this is your only source of revenue. Each month you collect data and count your number of users and total revenue. You’ve done this daily over the course of two years, recording it all in a spreadsheet. You could express this data as a series of points. Here are the first four:
+$$
+    S=\{(x, y)=(1,25),(10,250),(100,2500),(200,5000)\}
+$$
+If you showed this to someone else who didn’t even know how much you charged or anything about your business model (what kind of friend wasn’t paying attention to your business model?!), they might notice that there’s a clear relationship enjoyed by all of these points, namely \(y=25x\). This is a deterministic function, and it’s a linear one. It’s also a perfect fit for the data. If you were to plot it, you’d see that it passes through every point.
