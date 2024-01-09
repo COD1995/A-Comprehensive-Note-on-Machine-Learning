@@ -204,10 +204,10 @@ A \textbf{continuous random variable} takes an infinite number of possible value
 Let a discrete random variable \(X\) have \(k\) possible values \(\left\{x_{i}\right\}_{i=1}^{k}\). The \textbf{expectation} of \(X\) denoted as \(\mathbb{E}[X]\) is given by,
 
 \begin{equation}
-		\begin{aligned}
-			 \mathbb{E}[X] & \stackrel{\text { def }}{=} \sum_{i=1}^{k}\left[x_{i} \cdot \operatorname{Pr}\left(X=x_{i}\right)\right] \\ & =x_{1} \cdot \operatorname{Pr}\left(X=x_{1}\right)+x_{2} \cdot \operatorname{Pr}\left(X=x_{2}\right)+\cdots+x_{k} \cdot \operatorname{Pr}\left(X=x_{k}\right)
-		\end{aligned}
-		\label{notation:1}
+	\begin{aligned}
+		\mathbb{E}[X] & \stackrel{\text { def }}{=} \sum_{i=1}^{k}\left[x_{i} \cdot \operatorname{Pr}\left(X=x_{i}\right)\right] \\ & =x_{1} \cdot \operatorname{Pr}\left(X=x_{1}\right)+x_{2} \cdot \operatorname{Pr}\left(X=x_{2}\right)+\cdots+x_{k} \cdot \operatorname{Pr}\left(X=x_{k}\right)
+	\end{aligned}
+	\label{notation:1}
 \end{equation}
 
 where \(\operatorname{Pr}\left(X=x_{i}\right)\) is the probability that \(X\) has the value \(x_{i}\) according to the pmf. The expectation of a random variable is also called the \textbf{mean}, \textbf{average} or \textbf{expected value} and is frequently denoted with the letter \(\mu\),
@@ -264,24 +264,46 @@ Because \(f_{X}\) is usually unknown, but we have sample \(S_{X}=\left\{x_{i}\ri
 We say that \(\hat{\theta}\left(S_{X}\right)\) is an unbiased estimator of some statistic \(\theta\) calculated using a sample \(S_{X}\)
 drawn from an unknown probability distribution if \(\hat{\theta}\left(S_{X}\right)\) has the following property:
 $$
-\mathbb{E}\left[\hat{\theta}\left(S_{X}\right)\right]=\theta
+	\mathbb{E}\left[\hat{\theta}\left(S_{X}\right)\right]=\theta
 $$
 where \(\hat{\theta}\) is a \textbf{sample statistic}, obtained using a sample \(S_{X}\) and not the real statistic \(\theta\) that can be obtained only knowing \(X\); the expectation is taken over all possible samples drawn from \(X\). Intuitively, this means that if you can have an unlimited number of such sample as \(S_{X}\), and you compute some unbiased estimator, such as \(\hat{\mu}\), using each sample, then the average of all these \(\hat{\mu}\) equals the real statistic \(\mu\) that you would get computed on \(X\).
 
 It can be shown that an unbiased estimator of an unknown \(\mathbb{E}[X]\) (Eq.\ref{notation:1} or Eq.\ref{notation:2}) is given by \(\frac{1}{N} \sum_{i=1}^{N} x_{i}\) (called in statistics the \textbf{sample mean}).
 
 \section{Bayes' Rule}
-The conditional probability \(\operatorname{Pr}(X=x \mid Y=y)\) is the probability of the random variable \(X\) to have a specific value $x$ given another random variable $Y$ has a specific value of $y$. The \textbf{Bayes' Rule} (also known as the \textbf{Bayes' Therem}) stipulate that: 
+The conditional probability \(\operatorname{Pr}(X=x \mid Y=y)\) is the probability of the random variable \(X\) to have a specific value $x$ given another random variable $Y$ has a specific value of $y$. The \textbf{Bayes' Rule} (also known as the \textbf{Bayes' Therem}) stipulate that:
 $$
-\operatorname{Pr}(X=x \mid Y=y)=\frac{\operatorname{Pr}(Y=y \mid X=x) \operatorname{Pr}(X=x)}{\operatorname{Pr}(Y=y)}
+	\operatorname{Pr}(X=x \mid Y=y)=\frac{\operatorname{Pr}(Y=y \mid X=x) \operatorname{Pr}(X=x)}{\operatorname{Pr}(Y=y)}
 $$
 
 \section{Parameter Estimation}
-Bayes' Rule comes in handy when we have a model of \(X\)'s distribution, and this model \(f_{\theta}\) is a function that has some parameters in the form of a vector \(\theta\).  An example of such a function could be the Gaussian function that has two parameters, $\mu$ and $\sigma$, and is defined as: 
+Bayes' Rule comes in handy when we have a model of \(X\)'s distribution, and this model \(f_{\theta}\) is a function that has some parameters in the form of a vector \(\theta\).  An example of such a function could be the Gaussian function that has two parameters, $\mu$ and $\sigma$, and is defined as:
 \begin{equation}
 	f_{\boldsymbol{\theta}}(x)=\frac{1}{\sqrt{2 \pi \sigma^{2}}} e^{-\frac{(x-\mu)^{2}}{2 \sigma^{2}}}
 	\label{notation:3}
 \end{equation}
-where \(\boldsymbol{\theta} \stackrel{\text { def }}{=}[\mu, \sigma]\) and \(\pi\) is the constant \((3.14159 \ldots)\). 
+where \(\boldsymbol{\theta} \stackrel{\text { def }}{=}[\mu, \sigma]\) and \(\pi\) is the constant \((3.14159 \ldots)\).
 
-This function has all the properties of a pdf, which is the pdf od one of the most frequently used in practice probability distributions called \textbf{Gaussian distribution} or \textbf{normal distribution} and denote as \(\dot{\mathcal{N}}\left(\mu, \sigma^{2}\right)\). 
+This function has all the properties of a pdf, which is the pdf of one of the most frequently used in practice probability distributions called \textbf{Gaussian distribution} or \textbf{normal distribution} and denote as \(\dot{\mathcal{N}}\left(\mu, \sigma^{2}\right)\). Therefore, we can use it as a model of an unknown distribution of \(X\). We can update the values of parameters in the vector \(\theta\) from the data using the Bayes's Rule.
+
+\begin{equation}
+	\operatorname{Pr}(\theta=\hat{\theta} \mid X=x) \leftarrow \frac{\operatorname{Pr}(X=x \mid \theta=\hat{\theta}) \operatorname{Pr}(\theta=\hat{\theta})}{\operatorname{Pr}(X=x)}=\frac{\operatorname{Pr}(X=x \mid \theta=\hat{\theta}) \operatorname{Pr}(\theta=\hat{\theta})}{\sum_{\tilde{\theta}} \operatorname{Pr}(X=x \mid \theta=\tilde{\theta}) \operatorname{Pr}(\theta=\tilde{\theta})}
+	\label{eq:bayes_prediction}
+\end{equation}
+
+where \(\operatorname{Pr}(X=x \mid \theta=\hat{\theta}) \stackrel{\text { def }}{=} f_{\hat{\theta}}\). If we have a sample \(\mathcal{S}\) of \(X\) and the set of possible values for \(\theta\) is finite, we can easily estimate \(\operatorname{Pr}(\theta=\hat{\theta})\) by applying Bayes' Rule iteratively, one example \(x \in \mathcal{S}\) at a time. The initial value \(\operatorname{Pr}(\theta=\hat{\theta})\) can be guessed such that \(\sum_{\hat{\theta}} \operatorname{Pr}(\theta=\hat{\theta})=1\). This guess of the probabilities for different \(\hat{\theta}\) is called the \textbf{prior}.
+
+First, we compute \(\operatorname{Pr}\left(\theta=\hat{\theta} \mid X=x_{1}\right)\) for all possible values \(\hat{\theta}\). Then, before updating \(\operatorname{Pr}(\theta=\hat{\theta} \mid X=x)\) once again, this time for \(x=x_{2} \in \mathcal{S}\) using Eq.\ref{eq:bayes_prediction}, we replace the prior \(\operatorname{Pr}(\theta=\hat{\theta})\) in Eq.\ref{eq:bayes_prediction} by the new estimate \(\operatorname{Pr}(\theta=\hat{\theta}) \leftarrow \frac{1}{N} \sum_{x \in \mathcal{S}} \operatorname{Pr}(\theta=\hat{\theta} \mid X=x)\). 
+
+The optimal parameters \(\theta^{*}\) given one example is obtained using the principle of \textbf{maximum a posterior} (or MAP): 
+\begin{equation}
+	\theta^{*}=\underset{\theta}{\arg \max } \prod_{i=1}^{N} \operatorname{Pr}\left(\theta=\hat{\theta} \mid X=x_{i}\right)
+	\label{maximum a posteriori}
+\end{equation}
+If the set of possible values for $\theta$ isn't finite, then we need to optimize Eq. \ref{maximum a posteriori} directly using a numerical optimization routine, such as gradient descent.  Usually, we optimize the natural logarithm of the right-hand  side expression in Eq. \ref{maximum a posteriori} because the logarithm of a product becomes the sum of logarithms and it's easier for the machine to work with a sum than with a product.
+
+\section{Parameters vs. Hyperparameters}
+
+A \textit{hyper-parameter} is a property of a learning algorithm, usually (but not always) having a numerical value. That value influences the way the algorithm works. Hyper-parameters aren't learned by the algorithm itself from data. They have to be set by the data analyst before running the algorithm. \textit{Parameters} are variables that define the model learned by the learning algorithm. \textit{Parameters} are directly modified by the learning algorithm based on the training data. The goal of learning is to find such values of parameters that make the model optimal in a certain sense. 
+
+\section{Classification vs. Regression}
