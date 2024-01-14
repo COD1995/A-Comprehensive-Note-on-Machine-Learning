@@ -60,12 +60,23 @@ Now that we have our model, the rest is fitting the model.
 
 \textbf{Fitting the model} The intuition behind linear regression is that you want to find the line that minimizes the distance between all points and the line. Many lines look approximately correct, but the goal is to find the optimal one. \textit{Optimal} could mean different things, but let's start with optimal to mean the line that, on average, is closest to all the points.
 
-Linear regression seeks to find the line that minimize the sum of the squared distances between the predicted \(\widehat{y_{i}}\) s and the observed \(y_{i}\) s. This is the \textit{least squares} estimation.
+Linear regression seeks to find the line that minimize the sum of the squared distances between the predicted \(\widehat{y_{i}}\) s and the observed \(y_{i}\) s. This is the \textit{least squares} estimation (Fig.\ref{fig:algo_4}).
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{imgs/fundamental_algo/algo_4.png}
     \caption{The line closest to all the points}
     \label{fig:algo_4}
 \end{figure}
+To find this line, you'll define the ``residual sum of squares'' (RSS) as:
+\begin{equation}
+    R S S(\beta)=\Sigma_{i}\left(y_{i}-\beta x_{i}\right)^{2}
+    \label{eq:rss}
+\end{equation}
+where \(i\) ranges over the various data points. It is the sum of all the squared vertical distances between the observed points and any given line. Note this is a function of \(\beta\) and you want to optimize with respect to \(\beta\) to find the optimal line.
 
+We have a closed solution to Eq.\ref{eq:rss}
+
+$$
+    \hat{\beta}=\left(x^{t} x\right)^{-1} x^{t} y
+$$
 
