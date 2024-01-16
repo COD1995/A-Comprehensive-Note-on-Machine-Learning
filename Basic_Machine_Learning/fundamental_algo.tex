@@ -80,3 +80,21 @@ $$
     \hat{\beta}=\left(x^{t} x\right)^{-1} x^{t} y
 $$
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\linewidth]{imgs/fundamental_algo/algo_5.png}
+    \caption{On the left is the fitted line. We can see that for any fixed value, say $5$, the values for $y$ vary. For people with $5$ new friends, we display their time spent in the plot on the right.}
+    \label{fig:algo_5}
+\end{figure}
+
+Form Fig.\ref{fig:algo_5}, we have modeled the \textit{trend}, but we have not yet modeled the \textit{variation}. The variation is the \textit{noise} in the data. The noise is the randomness inherent in the data. In the real world, we don't know the true underlying relationship between the variables, so we can't predict the future. The model is only as good as the data we have.
+
+\textbf{Extending Beyond Least Squares} Now we will extend this \textit{simple linear regression} model in three primary ways:
+
+\begin{enumerate}
+    \item Adding in modeling assumption about the errors
+    \item Adding in more predictors
+    \item Transforming the predictors
+\end{enumerate}
+
+\textbf{Adding in Modeling Assumptions about the Errors} If you use the model to predict \(y\) for a given \(x\), the prediction is deterministic and does not capture the variability in the observed data. Look at

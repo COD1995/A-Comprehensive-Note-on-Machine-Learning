@@ -1,0 +1,8 @@
+\chapter{Distilling the knowledge in a Neural Network}
+This chapter is a direct and indirect reference to \cite{hinton2015distilling}.
+
+Simple way to improve the performance of any machine learning algorithm is to train many different models on the same data and then to average their predictions. Making predictions using a whole ensemble of models is too computationally expensive to allow deployment. \textit{It is shown that we can distill the knowledge of an ensemble of models into a single model.} The author introduces a new type of ensemble composed of one or more full models and many specialist models which learn to distinguish fine-grained classes that the full models confuse. Unlike a mixture of experts, these specialist models can be trained rapidly and in parallel. 
+
+\section{Introduction}
+
+In large-scale machine learning, we typically use very similar models for the training stage and deployment stage despite their very different requirements. The author provided an analogy of the insects suggests taht we should be willing to train a very cumbersome models if that makes it easier to extract structure from the data. The cumbersome model could be an ensemble of separately trained models or a single very large model trained with a very strong regularizer such as dropout. 
