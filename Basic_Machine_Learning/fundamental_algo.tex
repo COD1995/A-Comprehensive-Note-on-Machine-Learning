@@ -117,4 +117,15 @@ So what can you do with your observed data to estimate the variance of the error
     \frac{\sum_{i} e_{i}^{2}}{n-2}
 \end{equation}
 
-Why are we dividing by \(n-2\)? Dividing by \(n-2\), rather than just \(n\), produces an \textit{unbiased estimator}.The 2 corresponds to the number of model parameters. This is called the \textit{mean squared error} and captures how much the predicted value varies from the observed.
+Why are we dividing by \(n-2\)? Dividing by \(n-2\), rather than just \(n\), produces an \textit{unbiased estimator}.The 2 corresponds to the number of model parameters. This is called the \textit{mean squared error} and captures how much the predicted value varies from the observed. \textit{Mean squared error} is a useful quantity for any prediction problem. In regression in particular, it's also an estimator for your variance, but it can't always be used or interpreted that way.
+
+\textbf{Evaluation Metrics} How confident are you with the estimates?
+\begin{itemize}
+    \item \textit{R-squared}
+
+          \(R^{2}=1-\frac{\Sigma_{i}\left(y_{i}-\hat{y}_{i}\right)^{2}}{\sum_{i}\left(y_{i}-\bar{y}\right)^{2}}\). This can be interpreted as the proportion of variance explained by our model. The mean squared error is in there getting divided by total error, which is the proportion of variance \textit{unexplained} by our model and we calculate 1 minus that.
+
+    \item \textit{p-values}
+
+\end{itemize}
+
