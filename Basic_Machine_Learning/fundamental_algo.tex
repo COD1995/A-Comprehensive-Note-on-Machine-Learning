@@ -97,4 +97,24 @@ Form Fig.\ref{fig:algo_5}, we have modeled the \textit{trend}, but we have not y
     \item Transforming the predictors
 \end{enumerate}
 
-\textbf{Adding in Modeling Assumptions about the Errors} If you use the model to predict \(y\) for a given \(x\), the prediction is deterministic and does not capture the variability in the observed data. Look at
+\textbf{Adding in Modeling Assumptions about the Errors} If you use the model to predict \(y\) for a given \(x\), the prediction is deterministic and does not capture the variability in the observed data. Look at the Fig \ref{fig:algo_5}. We see a variability when \(x=5\) and you want to capture this variability in the model:
+\begin{equation}
+    y=\beta_{0}+\beta_{1} x+\epsilon
+\end{equation}
+the new term \(\epsilon\) is the noise or \textit{error} in the data. The noise is the randomness inherent in the data. One often makes the modeling assumption that the noise is normally distributed, which is denoted:
+\begin{equation}
+    \epsilon \sim N\left(0, \sigma^{2}\right)
+\end{equation}
+With the preceding assumption on the distriubution of noise, this model is saying that, for any given \(x\), the conditional distribution of \(y\) given \(x\) is \(p(y \mid x) \sim N\left(\beta_{0}+\beta_{1} x, \sigma^{2}\right)\). How do you fit the model? How do you get the parameters \(\beta_{0}, \beta_{1}, \sigma\) from the data?
+
+\begin{tcolorbox}[enhanced jigsaw, breakable, pad at break*=1mm, colback=gray!20!white, colframe=black!85!black, title=\textbf{How to fit the model?}]
+    Turns out that no matter how the \(\epsilon\) are distributed, the least squares estimates that we derived are the optimal estimator for \(\beta\)s becasuse they have the property of being unbiased and of being the minimum variance estimators.
+\end{tcolorbox}
+
+So what can you do with your observed data to estimate the variance of the errors? Now that you have the estimated line, you can see how far away the observed data points are from the line itself, and you can treat these differences, also known as \textit{observed errors} or \textit{residuals}, as observation themselves, or estimate of the actual errors, the \(\epsilon\)s. Define \(e_{i}=y_{i}-\hat{y_{i}}=y_{i}-\left(\hat{\beta}_{0}+\hat{\beta}_{1} x_{i}\right)\) for \(i=1, \ldots, n\). Then you estimate the variance (\(\sigma^{2}\)) of \(\epsilon\), as:
+
+\begin{equation}
+    \frac{\sum_{i} e_{i}^{2}}{n-2}
+\end{equation}
+
+Why are we dividing by \(n-2\)? Dividing by \(n-2\), rather than just \(n\), produces an \textit{unbiased estimator}.The 2 corresponds to the number of model parameters. This is called the \textit{mean squared error} and captures how much the predicted value varies from the observed.
