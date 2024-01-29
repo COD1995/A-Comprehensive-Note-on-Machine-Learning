@@ -2,10 +2,10 @@
 In this chapter, we will go through popular machine learning algorithms. In general, machine learning algorithms that are the basis of artificial intelligence (AI) such as image recognition, speech recognition, recommendation systems, ranking and personalization of content. They aren't generally designed to infer the underlying \textit{generative process} (e.g., to model something), but rather to predict or classify with the most accuracy.
 
 \section{Three Basic Algorithms}
-We will first provide you with basic tools to use, so we will start the simple three \textit{linear regression, k-nearest neighbors}, and \textit{k-means}.
+We will first provide you with basic tools to use, so we will start the simple three \textit{linear regression, k-nearest neighbours}, and \textit{k-means}.
 
 \subsection{Linear Regression}
-When you use it, you are making the assumption that there is a \textit{linear} relationship between an outcome variable (sometimes also called the response vairable, dependent variable, or label) and a predictor (sometimes also called an independent variable, explanatory variable, or feature); or between one variable and several other variables, in which case you're \textit{modeling} the relationship as having a linear structure.
+When you use it, you are making the assumption that there is a \textit{linear} relationship between an outcome variable (sometimes also called the response variable, dependent variable, or label) and a predictor (sometimes also called an independent variable, explanatory variable, or feature); or between one variable and several other variables, in which case you're \textit{modelling} the relationship as having a linear structure.
 
 \begin{tcolorbox}[enhanced jigsaw, breakable, pad at break*=1mm, colback=gray!20!white, colframe=black!85!black, title=\textbf{Algorithm or a Model?}]
     The two words seem to be used interchangeably when their actual definitions are not the same thing at all. In the purest sense, an algorithm is a set of rules or steps to follow to accomplish some task, and a model is an attempt to describe or capture the world.
@@ -28,7 +28,7 @@ If you showed this to someone else who didn't even know how much you charged or 
     \label{fig:algo_1}
 \end{figure}
 
-\textbf{Example 2} Say you have a dataset \textit{keyed} by user (meaning each row contains data for a single user), and the columns represent user behavior on a social networking site over a period of a week. Let's say you feel comfortable that the data is clean at this stage and that you have on the order of hundreds of thousands of users. The names of the columns are total\_num\_friends, total\_new\_friends\_this\_week, num\_visits, time\_spent, number\_ads\_shown and so on. During the course of your exploratory analysis, you've randomly sampled 100 users to keep it simple, and you plot pairs of these variables, for example, \(x\) = total\_new\_friends and \(y\) = time\_spent (in seconds). The business context might be that eventually you want to be able to promise advertisers who bid for space on your website in advance a certain number of users, so you want to be able to forecast number of users several days or weeks in advance. You decide to plot out the data first (Fig. \ref{fig:algo_2}):
+\textbf{Example 2} Say you have a dataset \textit{keyed} by user (meaning each row contains data for a single user), and the columns represent user behaviour on a social networking site over a period of a week. Let's say you feel comfortable that the data is clean at this stage and that you have on the order of hundreds of thousands of users. The names of the columns are total\_num\_friends, total\_new\_friends\_this\_week, num\_visits, time\_spent, number\_ads\_shown and so on. During the course of your exploratory analysis, you've randomly sampled 100 users to keep it simple, and you plot pairs of these variables, for example, \(x\) = total\_new\_friends and \(y\) = time\_spent (in seconds). The business context might be that eventually you want to be able to promise advertisers who bid for space on your website in advance a certain number of users, so you want to be able to forecast number of users several days or weeks in advance. You decide to plot out the data first (Fig. \ref{fig:algo_2}):
 
 \begin{figure}[H]
     \centering
@@ -39,7 +39,7 @@ If you showed this to someone else who didn't even know how much you charged or 
 
 The relationship looks \textit{kind of} linear. But be aware that there is no perfectly \textit{deterministic} relationship between number of new friends and time spent on the site, but it makes sense that there is an \textit{association} between these two variables.
 
-\textbf{Building Blocks} There are two things you want to capture in the model. The first is the \textit{trend} and the second is the \textit{variation}. First, we focus on the \textit{trend}. Let's assume there exist a relationship and it is linear. There are many lines and they all look they might work (Fig.\ref{fig:algo_3}).
+\textbf{Building Blocks} There are two things you want to capture in the model. The first is the \textit{trend} and the second is the \textit{variation}. First, we focus on the \textit{trend}. Let's assume there exists a relationship and it is linear. There are many lines and they all look they might work (Fig.\ref{fig:algo_3}).
 
 \begin{figure}[H]
     \centering
@@ -92,7 +92,7 @@ Form Fig.\ref{fig:algo_5}, we have modeled the \textit{trend}, but we have not y
 \textbf{Extending Beyond Least Squares} Now we will extend this \textit{simple linear regression} model in three primary ways:
 
 \begin{enumerate}
-    \item Adding in modeling assumption about the errors
+    \item Adding in modelling assumption about the errors
     \item Adding in more predictors
     \item Transforming the predictors
 \end{enumerate}
@@ -101,14 +101,14 @@ Form Fig.\ref{fig:algo_5}, we have modeled the \textit{trend}, but we have not y
 \begin{equation}
     y=\beta_{0}+\beta_{1} x+\epsilon
 \end{equation}
-the new term \(\epsilon\) is the noise or \textit{error} in the data. The noise is the randomness inherent in the data. One often makes the modeling assumption that the noise is normally distributed, which is denoted:
+the new term \(\epsilon\) is the noise or \textit{error} in the data. The noise is the randomness inherent in the data. One often makes the modelling assumption that the noise is normally distributed, which is denoted:
 \begin{equation}
     \epsilon \sim N\left(0, \sigma^{2}\right)
 \end{equation}
-With the preceding assumption on the distriubution of noise, this model is saying that, for any given \(x\), the conditional distribution of \(y\) given \(x\) is \(p(y \mid x) \sim N\left(\beta_{0}+\beta_{1} x, \sigma^{2}\right)\). How do you fit the model? How do you get the parameters \(\beta_{0}, \beta_{1}, \sigma\) from the data?
+With the preceding assumption on the distribution of noise, this model is saying that, for any given \(x\), the conditional distribution of \(y\) given \(x\) is \(p(y \mid x) \sim N\left(\beta_{0}+\beta_{1} x, \sigma^{2}\right)\). How do you fit the model? How do you get the parameters \(\beta_{0}, \beta_{1}, \sigma\) from the data?
 
 \begin{tcolorbox}[enhanced jigsaw, breakable, pad at break*=1mm, colback=gray!20!white, colframe=black!85!black, title=\textbf{How to fit the model?}]
-    Turns out that no matter how the \(\epsilon\) are distributed, the least squares estimates that we derived are the optimal estimator for \(\beta\)s becasuse they have the property of being unbiased and of being the minimum variance estimators.
+    Turns out that no matter how the \(\epsilon\) are distributed, the least squares estimates that we derived are the optimal estimator for \(\beta\)s because they have the property of being unbiased and of being the minimum variance estimators.
 \end{tcolorbox}
 
 So what can you do with your observed data to estimate the variance of the errors? Now that you have the estimated line, you can see how far away the observed data points are from the line itself, and you can treat these differences, also known as \textit{observed errors} or \textit{residuals}, as observation themselves, or estimate of the actual errors, the \(\epsilon\)s. Define \(e_{i}=y_{i}-\hat{y_{i}}=y_{i}-\left(\hat{\beta}_{0}+\hat{\beta}_{1} x_{i}\right)\) for \(i=1, \ldots, n\). Then you estimate the variance (\(\sigma^{2}\)) of \(\epsilon\), as:
