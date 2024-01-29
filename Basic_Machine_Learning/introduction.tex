@@ -28,9 +28,9 @@ In \textbf{unsupervised learning}, the dataset is a collection of \textbf{unlabe
 	\item in \textbf{outlier detection}, the output is a real number that indicates how $\mathbf{x}$ is different from a ``typical" example in the dataset.
 \end{itemize}
 \subsection{Semi-Supervised Learning}
-In \textbf{semi-supervised learning}, the dataset contains both labeled and unlabeled examples.
+In \textbf{semi-supervised learning}, the dataset contains both labelled and unlabeled examples.
 \begin{itemize}
-	\item Usually the quantity of unlabeled examples is much higher than the number of labeled examples.
+	\item Usually the quantity of unlabeled examples is much higher than the number of labelled examples.
 \end{itemize}
 The goal of \textbf{semi-supervised learning algorithm} is the same as the goal of the supervised learning algorithm.
 \begin{itemize}
@@ -38,7 +38,7 @@ The goal of \textbf{semi-supervised learning algorithm} is the same as the goal 
 \end{itemize}
 How does the learning benefit from adding more unlabeled examples?
 \begin{itemize}
-	\item By adding unlabeled examples, you add more information about your problem:\textit{ a larger sample reflects better the probability distribution the data we labeled came from}.
+	\item By adding unlabeled examples, you add more information about your problem:\textit{ a larger sample reflects better the probability distribution the data we labelled came from}.
 \end{itemize}
 
 \subsection{Reinforcement Learning}
@@ -56,9 +56,9 @@ Supervised learning is the type of machine learning most frequently used in prac
 \end{itemize}
 You want to solve spam detection using supervised learning. First, you gather the data of 10,000 email messages and you have your label ``spam" or ``not\_spam" for each message. With the data at hand, you have to represent each message using a feature vector.
 
-A common approach it to use \textbf{bag of words}, is to take a dictionary of English words (e.g. 20,000 alphabetically sorted words) and stipulate that in our feature vector:
+A common approach is to use \textbf{bag of words}, is to take a dictionary of English words (e.g. 20,000 alphabetically sorted words) and stipulate that in our feature vector:
 \begin{itemize}
-	\item the first feature is equal to 1 if the email message contains the word ``a"; other wise, this feature is 0;
+	\item the first feature is equal to 1 if the email message contains the word ``a"; otherwise, this feature is 0;
 	\item the second feature is equal to 1 if the email message contains the word ``aaron"; otherwise, this feature equals 0;
 	\item ...
 	\item the feature at position 20,000 is equal to 1 if the email message contains the word ``zulu"; otherwise, this feature is equal to 0.
@@ -102,7 +102,7 @@ $$
 	\end{array}
 $$
 
-It will also be ideal if the hyperplane separates positive examples from negative ones with the largest \textbf{margin}. The margin is the distance between the closestt examples of two classes, as defined by the decision boundary. A large margin contributes to a better \textbf{generalization}, that is how well the model will classify new examples in the future.
+It will also be ideal if the hyperplane separates positive examples from negative ones with the largest \textbf{margin}. The margin is the distance between the closest examples of two classes, as defined by the decision boundary. A large margin contributes to a better \textbf{generalization}, that is how well the model will classify new examples in the future.
 
 \begin{figure}[H]
 	\centering
